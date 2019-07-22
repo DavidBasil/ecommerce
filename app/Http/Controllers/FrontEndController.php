@@ -13,4 +13,11 @@ class FrontEndController extends Controller
         return view('index', ['products' => Product::paginate(3)]);
     }
 
+    public function single($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('single', ['product' => $product]);
+    }
+
 }

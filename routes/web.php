@@ -15,6 +15,8 @@ Route::get('/', 'FrontEndController@index')->name('index');
 
 Route::resource('products', 'ProductsController');
 
+Route::get('product/{id}', 'FrontEndController@single')->name('product.single');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

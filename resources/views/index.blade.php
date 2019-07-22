@@ -14,11 +14,17 @@
         </div>
         <div class="card-footer">
          ${{ $product->price }}
+         <a href="{{ route('product.single', ['id' => $product->id]) }}" class="stretched-link"></a>
         </div>
       </div>
     </div>
     @endforeach
   </div>
-  {{ $products->links() }}
+
+  <div class="d-flex mt-5">
+    <div class="mx-auto">
+      {{ $products->links() }}
+    </div>
+  </div>
 </div>
 @endsection

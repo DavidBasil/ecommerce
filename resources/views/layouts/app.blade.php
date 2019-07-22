@@ -10,7 +10,6 @@
   <title>{{ config('app.name', 'Laravel') }}</title>
 
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
 
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +17,7 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
 </head>
 <body>
 
@@ -41,6 +41,12 @@
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
             @guest
+              <li class="nav-item">
+                <a href="{{ route('cart') }}" class=" btn btn-outline-primary btn-rounded" data-toggle="tooltip" data-placement="bottom" title="${{ Cart::total() }}">
+                  <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  {{ Cart::count() }}
+                </a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
               </li>
@@ -78,9 +84,11 @@
     </main>
   </div>
 
-<script src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/popper.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap-material-design.min.js') }}"></script>
-<script src="{{ asset('js/material-kit.min.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script charset="utf-8">
+ $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+}) 
+</script>
 </body>
 </html>

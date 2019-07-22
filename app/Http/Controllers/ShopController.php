@@ -19,7 +19,6 @@ class ShopController extends Controller
             'qty' => request()->quantity,
             'price' => $product->price,
             'weight' => 0,
-            'tax' => 0
         ]);
 
         Cart::associate($cartItem->rowId, 'App\Product');
@@ -29,7 +28,26 @@ class ShopController extends Controller
 
     public function cart()
     {
+        /* Cart::destroy(); */
         return view('cart');
+    }
+
+    public function cart_delete($id)
+    {
+        Cart::remove($id);
+        return redirect()->back();
+    }
+
+    public function incr($id, $qty)
+    {
+        Cart::update($id, $qty + 1);
+        return redirect()->back();
+    }
+
+    public function decr($id, $qty)
+    {
+        Cart::update($id, $qty - 1);
+        return redirect()->back();
     }
 
 }

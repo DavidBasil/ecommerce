@@ -25,6 +25,7 @@ Route::get('cart/delete/{id}', 'ShopController@cart_delete')->name('cart.delete'
 Route::get('cart/incr/{id}/{qty}', 'ShopController@incr')->name('cart.incr');
 Route::get('cart/decr/{id}/{qty}', 'ShopController@decr')->name('cart.decr');
 Route::get('cart/checkout', 'CheckoutController@index')->name('cart.checkout');
+Route::post('cart/checkout', 'CheckoutController@pay')->name('cart.checkout');
 
 Auth::routes();
 

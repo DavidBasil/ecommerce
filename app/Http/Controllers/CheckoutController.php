@@ -10,4 +10,16 @@ class CheckoutController extends Controller
     {
         return view('checkout');
     }
+
+    public function pay(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'card' => 'required|numeric',
+            'card_expiry' => 'required',
+            'cvc' => 'required|numeric'
+        ]);
+
+
+    }
 }

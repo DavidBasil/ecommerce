@@ -18,6 +18,7 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css">
 </head>
 <body>
 
@@ -85,10 +86,20 @@
   </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" charset="utf-8"></script>
 <script charset="utf-8">
  $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 }) 
+</script>
+
+<script charset="utf-8">
+  @if (session('success'))
+   toastr.success("{{ session('success') }}");
+  @endif
+  @if (session('info'))
+   toastr.info("{{ session('info') }}");
+  @endif
 </script>
 </body>
 </html>

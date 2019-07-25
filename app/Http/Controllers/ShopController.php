@@ -23,7 +23,7 @@ class ShopController extends Controller
 
         Cart::associate($cartItem->rowId, 'App\Product');
 
-        return redirect()->route('cart');
+        return redirect()->route('cart')->with('success', 'Product added to cart');
     }
 
     public function cart()

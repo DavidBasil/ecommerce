@@ -3,8 +3,10 @@
 @section('content')
 <div class="container">
   
-  <h5 class="mb-3">Add a product</h5>
+  <h5 class="mb-3 text-center">Add a product</h5>
 
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
   <form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data">
     @csrf
     <!-- name -->
@@ -39,9 +41,12 @@
     <hr>
     <!-- submit -->
     <div class="form-group">
-      <button type="submit" class="btn btn-success btn-block">Create</button>
+      <button type="submit" class="btn btn-primary btn-block">Add a product</button>
     </div>
   </form>
+
+    </div>
+  </div>
 
 </div>
 

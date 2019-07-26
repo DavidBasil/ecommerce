@@ -29,7 +29,7 @@ class CheckoutController extends Controller
 
         Mail::to(request()->email)->send(new \App\Mail\PurchaseSuccessful);
 
-        return redirect('/')->with('success', 'You paid for order');
+        return redirect('/')->with('success', 'Thank you for your order. You will receive email with confirmation');
 
     }
 }

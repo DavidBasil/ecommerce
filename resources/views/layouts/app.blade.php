@@ -18,7 +18,7 @@
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css">
+  {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" type="text/css"> --}}
 </head>
 <body>
 
@@ -26,8 +26,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          {{ config('app.name', 'Laravel') }}
-        </a>
+          <img src="{{ asset('images/logo.png') }}" alt="" class="w-50 p-0 m-0"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -63,6 +62,9 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('products.index') }}">
+                    {{ __('Dashboard') }}
+                  </a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
@@ -86,20 +88,12 @@
   </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" charset="utf-8"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" charset="utf-8"></script> --}}
 <script charset="utf-8">
  $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 }) 
 </script>
 
-<script charset="utf-8">
-  @if (session('success'))
-   toastr.success("{{ session('success') }}");
-  @endif
-  @if (session('info'))
-   toastr.info("{{ session('info') }}");
-  @endif
-</script>
 </body>
 </html>

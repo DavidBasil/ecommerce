@@ -50,7 +50,9 @@
       <h4 class="mt-2">Grand total: <u>${{ Cart::total() }}</u></h4>
     </div>
     <div class="col-md-6">
+      @if (Cart::content()->count() >0)
       <a href="{{ route('cart.checkout') }}" class="btn btn-block btn-success">Checkout</a>
+      @endif
     </div>
   </div>
 </div>

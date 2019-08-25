@@ -27,7 +27,7 @@ class CheckoutController extends Controller
 
         Cart::destroy();
 
-        Mail::to(request()->email)->send(new \App\Mail\PurchaseSuccessful);
+        /* Mail::to(request()->email)->send(new \App\Mail\PurchaseSuccessful); */
 
         return redirect('/')->with('success', 'Thank you for your order. You will receive email with confirmation');
 
